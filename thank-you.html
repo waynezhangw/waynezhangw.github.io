@@ -2,18 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thank You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message Sent</title>
+
+  <link href="./assets/css/main.d8e0d294.css" rel="stylesheet">
+  <link href="./assets/css/thanks.css" rel="stylesheet">
+
+  <meta http-equiv="refresh" content="4; url=./index.html">
 </head>
-<body style="font-family: Arial; text-align: center; padding: 100px;">
 
-  <h1>✅ Message Sent!</h1>
-  <p>Thanks for reaching out. I'll get back to you soon.</p>
+<body class="thankyou-page">
 
-  <br>
-  <a href="./index.html" style="text-decoration: none; color: #007BFF;">
-    ← Back to homepage
-  </a>
+  <div class="thankyou-bg"></div>
+  <div class="thankyou-overlay"></div>
+
+  <div class="card thankyou-card">
+    <div class="card-block">
+      <h2 class="thankyou-title">✅ Message Sent!</h2>
+
+      <p class="thankyou-text">
+        Thanks for reaching out — I appreciate it. I'll get back to you as soon as I can.<br>
+        You will be redirected to the homepage in <span id="countdown">4</span> seconds.
+      </p>
+
+      <a href="./index.html" class="btn btn-primary thankyou-btn">
+        ← Back to homepage
+      </a>
+    </div>
+  </div>
+
+<script>
+    let time = 5;
+    const el = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+        time--;
+        if (el) el.textContent = time;
+
+        if (time === 0) {
+        clearInterval(timer);
+        window.location.href = "./index.html";
+        }
+    }, 1000);
+</script>
 
 </body>
-</html>
