@@ -172,7 +172,13 @@ img {
 .img-responsive {
     display: block;
     max-width: 100%;
-    height: auto}
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease
+}
+.img-responsive:hover {
+  transform: scale(1.03);
+}
 .img-rounded {
     border-radius: 6px}
 .img-thumbnail {
