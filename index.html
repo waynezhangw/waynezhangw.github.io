@@ -288,8 +288,7 @@
         <div class="card">
           <div class="card-block">
             <h2>Contact</h2>
-              <form action="https://formspree.io/f/mnjlaqar" method="POST" class="reveal-content">
-                <input type="hidden" name="_next" value="https://waynezhangw.github.io/thank-you.html">
+              <form id="contact-form" action="https://formspree.io/f/mnjlaqar" method="POST" class="reveal-content">
                 <div class="form-group">
                   <input type="email" name="email" class="form-control" placeholder="Your email" required>
                 </div>
@@ -339,6 +338,31 @@
   </div>
 </footer>
 
+
+<script>
+  const form = document.getElementById("contact-form");
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        window.location.href = "./thank-you.html";
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  }
+</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      scrollRevelation('.card');
@@ -356,6 +380,8 @@
   ga('create', 'UA-XXXXX-X', 'auto');
   ga('send', 'pageview');
 </script>
+
+
 
 --><script type="text/javascript" src="./assets/js/main.bc58148c.js"></script></body>
 
